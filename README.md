@@ -1,4 +1,4 @@
-# Port Customer Experience Tools
+# Port Customer Experience Scripts
 
 ![port-oss-category](https://github.com/port-experimental/oss-images/blob/main/example-code.png)
 
