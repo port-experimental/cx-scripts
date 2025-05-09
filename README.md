@@ -14,7 +14,7 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
 - [GitHub Copilot Utilization](https://github.com/port-experimental/github-copilot-utilization)
 
-## Infrastructure as Code
+## Data Exporting
 - [Terraform Import Generator](https://github.com/port-experimental/terraform-import-generator)
 - [Pulumi Import Generator](https://github.com/port-experimental/pulumi_import_generator)
 
