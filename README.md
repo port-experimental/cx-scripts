@@ -9,6 +9,7 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Port Audit Log Exporter to Kafka](https://github.com/port-experimental/audit-logs-to-kafka)
 - [Deep Copy of Entities across Port orgs](https://github.com/port-experimental/deep-copy-entities)
 - [Parse Monorepo](https://github.com/port-experimental/parse-monorepo)
+- [Port Blueprint Cleaner](https://github.com/port-experimental/port-blueprint-cleaner)
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
@@ -27,4 +28,7 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Entra ID Provisioner to Port](https://github.com/port-experimental/entra-id-provisioner)
 
 ## Aikido
-- [Aikido Integration](https://github.com/port-experimental/aikido-integration) 
+- [Aikido Integration](https://github.com/port-experimental/aikido-integration)
+
+## Kong
+- [Kong Konnect Ingestion](https://github.com/port-experimental/kong-konnect-ingestion)
