@@ -10,6 +10,7 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Deep Copy of Entities across Port orgs](https://github.com/port-experimental/deep-copy-entities)
 - [Parse Monorepo](https://github.com/port-experimental/parse-monorepo)
 - [Port Blueprint Cleaner](https://github.com/port-experimental/port-blueprint-cleaner)
+- [Compare Port Organizations](https://github.com/port-experimental/port_organization_comparison)
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
