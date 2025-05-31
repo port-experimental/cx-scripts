@@ -11,6 +11,8 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Parse Monorepo](https://github.com/port-experimental/parse-monorepo)
 - [Port Blueprint Cleaner](https://github.com/port-experimental/port-blueprint-cleaner)
 - [Compare Port Organizations](https://github.com/port-experimental/port_organization_comparison)
+- [Port Schemas Backup](https://github.com/port-experimental/port-schemas-backup)
+- [PyPort](https://github.com/port-experimental/PyPort)
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
