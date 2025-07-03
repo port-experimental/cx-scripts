@@ -28,6 +28,8 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
   - Exports all entities to JSON,YAML, or CSV .
 - [Port Integration Refresh](scripts/port-integration-refresh.py)
   - Triggers a refresh/resync of a Port integration.
+- [GitHub User to Port User Mapping](scripts/map_users.py)
+  - Maps GitHub user entities in Port to their corresponding general Port user entities.
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
