@@ -19,13 +19,15 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Port Schemas Backup](https://github.com/port-experimental/port-schemas-backup)
   - Exports and backs up Port schema definitions safely.
 - [PyPort - Port API Wrapper](https://github.com/port-experimental/PyPort)
-  - ython wrapper for easy integration with Port’s API.
+  - Python wrapper for easy integration with Port's API.
 - [Surveys to Excel](https://github.com/port-experimental/surveys-to-excel)
   - Converts Port survey results into formatted Excel sheets
 - [Repo to Team Mapper](https://github.com/port-experimental/repo-team-mapper)
   - Maps GitHub repository ownership to corresponding Port teams.
 - [Port Entity Exporter](https://github.com/port-experimental/entity-exporter.git)
   - Exports all entities to JSON,YAML, or CSV .
+- [Port Integration Refresh](scripts/port-integration-refresh.py)
+  - Triggers a refresh/resync of a Port integration.
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
