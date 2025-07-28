@@ -30,14 +30,18 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
   - Triggers a refresh/resync of a Port integration.
 - [GitHub User to Port User Mapping](scripts/map_users.py)
   - Maps GitHub user entities in Port to their corresponding general Port user entities.
+- [Delete Datasource Entities](https://github.com/port-experimental/delete-datasource-entities)
+  - Helps you delete all entities of a certain data source, from all blueprints.
 
 ## Developer experience
-- [Developer Onboarding Metrics](https://github.com/port-experimental/developer_onboarding_metrics)
+- [Developer Onboarding Metrics](https://github.com/port-experimental/github-metrics)
   - Tracks and visualizes developer onboarding performance metrics.
 - [GitHub Copilot Utilization](https://github.com/port-experimental/github-copilot-utilization)
   - Imports GitHub Copilot usage data into Port dashboards.
+- [Self Service Actions ROI]()
+  - Demonstrates how to integrate GitHub Actions with Port self‑service actions. 
 
-## Data Exporting
+## Port as IaC
 - [Terraform Import Generator](https://github.com/port-experimental/terraform-import-generator)
   - Automatically generates Terraform import scripts from Port.
 - [Pulumi Import Generator](https://github.com/port-experimental/pulumi_import_generator)
@@ -70,3 +74,11 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 ## GitLeaks
 - [GitLeaks Port Demo](https://github.com/port-experimental/gitleaks-port-demo)
   - Demonstrates GitLeaks integration within Port contexts.
+
+## Teamform
+- [Teamform Integration](https://github.com/port-experimental/teamform)
+  - A basic integration with teamform to ingest team hierarchies.
+
+## Armorcode
+- [Armorcode Integration](https://github.com/port-experimental/armorcode-integration)
+  - Script to ingest Armorcode vulnerabilities and data.
