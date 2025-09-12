@@ -32,20 +32,26 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
   - Maps GitHub user entities in Port to their corresponding general Port user entities.
 - [Delete Datasource Entities](https://github.com/port-experimental/delete-datasource-entities)
   - Helps you delete all entities of a certain data source, from all blueprints.
+- [Port YAML Validator](https://github.com/port-experimental/blueprint-yml-validator)
+ - A tool for validating YAML files against Port's API.
+- [TechDoc Experiement](https://github.com/port-experimental/techdoc-experiment)
+  - Framework for ingesting documentation from various sources into a Port software catalog.
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/github-metrics)
   - Tracks and visualizes developer onboarding performance metrics.
 - [GitHub Copilot Utilization](https://github.com/port-experimental/github-copilot-utilization)
   - Imports GitHub Copilot usage data into Port dashboards.
-- [Self Service Actions ROI]()
-  - Demonstrates how to integrate GitHub Actions with Port self‑service actions. 
+- [Self Service Actions ROI](https://github.com/port-experimental/actions-experience)
+  - Backend for Self Service Actions ROI Experience. 
 
 ## Port as IaC
 - [Terraform Import Generator](https://github.com/port-experimental/terraform-import-generator)
   - Automatically generates Terraform import scripts from Port.
 - [Pulumi Import Generator](https://github.com/port-experimental/pulumi_import_generator)
   - Generates Pulumi import definitions based on Port resources.
+- [Terraform Cloud State Parser](https://github.com/port-experimental/terraform-cloud-state-parser)
+  - Parses state files from Terraform Cloud to generate resources and sync them to Port.
 
 ## Azure DevOps
 - [Map Azure DevOps Teams to Port Users](https://github.com/port-experimental/map-ado-teams-to-port-user)
@@ -54,6 +60,10 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
   - Imports ADO Gradle project metadata into Port.
 - [Azure Pipelines to Azure Repos connector in Port](https://github.com/port-experimental/connect-ado-pipelines)
   - Integrates ADO Pipelines with Port repositories.
+- [Azure Devops Environments Fetcher](https://github.com/port-experimental/azure-devops-environments)
+  - Syncs Azure Devops Environments and Deployments to Port.
+- [Azure DevOps Tests & Code Coverage Analysis Integration](https://github.com/port-experimental/azure-devops-tests-and-code-coverage)
+  - Script for ingests ADO tests and code coverage analysis into Port.
 
 ## Entra ID
 - [Entra ID Provisioner to Port](https://github.com/port-experimental/entra-id-provisioner)
@@ -82,3 +92,11 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 ## Armorcode
 - [Armorcode Integration](https://github.com/port-experimental/armorcode-integration)
   - Script to ingest Armorcode vulnerabilities and data.
+
+## Cursor
+- [Cursor Metrics](https://github.com/port-experimental/cursor-utilization)
+ - Import Cursor Admin API metrics into Port as daily records (org + user) with event counts, line counts, and cost metrics.
+
+## BugCrowd
+- [BugCrowd Integration](https://github.com/port-experimental/bugcrowd-integration)
+  - Scripts integration with bugcrowd to map bugcrowd submissions and programs to Port.
