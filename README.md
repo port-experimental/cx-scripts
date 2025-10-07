@@ -45,6 +45,11 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 - [Self Service Actions ROI](https://github.com/port-experimental/actions-experience)
   - Backend for Self Service Actions ROI Experience. 
 
+## Port as code 
+- [Port Javascript SDK](https://github.com/port-experimental/port-js)
+  - A type-safe, feature-rich SDK for interacting with Port.io's API. Built with security, developer experience, and reliability in mind.
+- [Port Python SDK](https://github.com/port-experimental/PyPort)
+  - A Python SDK for the Port IDP REST API that handles authentication, error handling, and logging so you can focus on building your solutions.
 ## Port as IaC
 - [Terraform Import Generator](https://github.com/port-experimental/terraform-import-generator)
   - Automatically generates Terraform import scripts from Port.
