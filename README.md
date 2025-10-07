@@ -73,6 +73,8 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 ## Entra ID
 - [Entra ID Provisioner to Port](https://github.com/port-experimental/entra-id-provisioner)
   - Provisions Entra (Azure AD) identities into Port automatically.
+- [Entra ID Group invites](https://github.com/port-experimental/sync-entra)
+  - Invite Entra ID Group members to port via email (To be triggered as a self-service action). 
 
 ## Aikido
 - [Aikido Integration](https://github.com/port-experimental/aikido-integration)
