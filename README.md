@@ -36,6 +36,8 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
  - A tool for validating YAML files against Port's API.
 - [TechDoc Experiement](https://github.com/port-experimental/techdoc-experiment)
   - Framework for ingesting documentation from various sources into a Port software catalog.
+- [Port SSA Parser](https://github.com/port-experimental/ssa-input-parse)
+  - A CLI Utility to ingest SSA JSON inputs and generate a file using templates.
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/github-metrics)
