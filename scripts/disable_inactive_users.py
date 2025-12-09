@@ -204,14 +204,12 @@ def disable_batch(
     headers: Dict[str, str],
     batch: List[Dict[str, Any]],
 ) -> None:
-    url = base_url.rstrip("/") + "/v1/blueprints/_user/entities/bulk"
+    url = base_url.rstrip("/") + "/v1/blueprints/_user/entities/bulk?upsert=true&merge=true"
     payload = {
         "entities": [
             {
                 "identifier": user["id"],
-                "title": user.get("email") or user["id"],
                 "properties": {"status": "Disabled"},
-                "upsert": True,
             }
             for user in batch
         ]
