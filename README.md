@@ -30,14 +30,28 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
   - Triggers a refresh/resync of a Port integration.
 - [GitHub User to Port User Mapping](scripts/map_users.py)
   - Maps GitHub user entities in Port to their corresponding general Port user entities.
+- [Disable Inactive Users](scripts/disable_inactive_users.py)
+  - Disables Port users that have been inactive for a specified number of days.
 - [Delete Datasource Entities](https://github.com/port-experimental/delete-datasource-entities)
   - Helps you delete all entities of a certain data source, from all blueprints.
 - [Port YAML Validator](https://github.com/port-experimental/blueprint-yml-validator)
- - A tool for validating YAML files against Port's API.
+  - A tool for validating YAML files against Port's API.
 - [TechDoc Experiement](https://github.com/port-experimental/techdoc-experiment)
   - Framework for ingesting documentation from various sources into a Port software catalog.
 - [Port SSA Parser](https://github.com/port-experimental/ssa-input-parse)
   - A CLI Utility to ingest SSA JSON inputs and generate a file using templates.
+- [AWS Secret Manager](https://github.com/port-experimental/aws-secret-manager)
+  - A backend for Self-Service Actions to create or update AWS secrets.
+- [API Documentation App](https://github.com/port-experimental/api-doc-app)
+  - An embeddable application for displaying interactive API documentation.
+- [Port PR Chart](https://github.com/port-experimental/port-pr-chart)
+  - A visualization tool for Port Pull Request data.
+- [Logs Streaming Agent](https://github.com/port-experimental/logs-streaming-agent)
+  - An agent for streaming logs to Port.
+- [MCP Server Integration](https://github.com/port-experimental/mcp-server-integration)
+  - Integrates Model Context Protocol (MCP) servers with Port.
+- [Port Analytics Extractor](https://github.com/port-experimental/port-analytics-extractor)
+  - Extracts analytics data from Port for external reporting.
 
 ## Developer experience
 - [Developer Onboarding Metrics](https://github.com/port-experimental/github-metrics)
@@ -46,12 +60,23 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
   - Imports GitHub Copilot usage data into Port dashboards.
 - [Self Service Actions ROI](https://github.com/port-experimental/actions-experience)
   - Backend for Self Service Actions ROI Experience. 
+- [Experience Marketplace](https://github.com/port-experimental/experience-marketplace)
+  - A collection of templates and experiences for Port.
+- [Onboarding Workshop](https://github.com/port-experimental/onboarding-workshop)
+  - Resources and materials for Port onboarding workshops.
+- [Port AI Ops Toolkit](https://github.com/port-experimental/port-ai-ops-toolkit)
+  - A toolkit for implementing AIOps workflows in Port.
 
 ## Port as code 
 - [Port Javascript SDK](https://github.com/port-experimental/port-js)
   - A type-safe, feature-rich SDK for interacting with Port.io's API. Built with security, developer experience, and reliability in mind.
 - [Port Python SDK](https://github.com/port-experimental/PyPort)
   - A Python SDK for the Port IDP REST API that handles authentication, error handling, and logging so you can focus on building your solutions.
+- [Port Go SDK](https://github.com/port-experimental/port-go-sdk)
+  - A Go SDK for interacting with Port's API.
+- [Port CLI](https://github.com/port-experimental/port-cli)
+  - A command-line interface for interacting with Port.
+  
 ## Port as IaC
 - [Terraform Import Generator](https://github.com/port-experimental/terraform-import-generator)
   - Automatically generates Terraform import scripts from Port.
