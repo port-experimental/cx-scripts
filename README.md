@@ -129,7 +129,7 @@ This is a list of code examples and scripts compiled by Port teams for the purpo
 
 ## Cursor
 - [Cursor Metrics](https://github.com/port-experimental/cursor-utilization)
- - Import Cursor Admin API metrics into Port as daily records (org + user) with event counts, line counts, and cost metrics.
+  - Import Cursor Admin API metrics into Port as daily records (org + user) with event counts, line counts, and cost metrics.
 
 ## BugCrowd
 - [BugCrowd Integration](https://github.com/port-experimental/bugcrowd-integration)
