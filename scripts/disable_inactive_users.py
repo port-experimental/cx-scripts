@@ -3,9 +3,8 @@
 Disable inactive Port users.
 
 What it does:
-- Fetches users via GET /v1/users
-- Filters users whose lastLoginAt is older than N days (or missing)
-- Bulk-upserts status=Disabled on the _user blueprint via POST /v1/blueprints/_user/entities/bulk 
+- Fetches users and filters out inactive users
+- Bulk-upserts status=Disabled on the _user blueprint via POST /v1/blueprints/_user/entities/bulk for these inactive users
 
 Prerequisites:
 - Python 3.9+
@@ -97,6 +96,16 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Do not call bulk API; only list users that would be disabled.",
     )
+    parser.add_argument(
+        "--log-missing-last-login",
+        action="store_true",
+        help="Log users where no lastLoginAt could be resolved (for diagnostics).",
+    )
+    parser.add_argument(
+        "--treat-missing-as-inactive",
+        action="store_true",
+        help="If set, users with missing lastLoginAt are treated as inactive; otherwise they are skipped.",
+    )
     return parser.parse_args()
 
 
@@ -139,6 +148,28 @@ def fetch_users(session: requests.Session, base_url: str, headers: Dict[str, str
     return users
 
 
+def fetch_user_detail(
+    session: requests.Session,
+    base_url: str,
+    headers: Dict[str, str],
+    email: str,
+) -> Optional[Dict[str, Any]]:
+    url = base_url.rstrip("/") + f"/v1/users/{email}"
+    resp = session.get(url, headers=headers, timeout=30)
+    if resp.status_code == 404:
+        print(f"[detail missing] user={email} (404)", file=sys.stderr)
+        return None
+    if resp.status_code != 200:
+        print(f"Failed to fetch user detail for {email} ({resp.status_code}): {resp.text}", file=sys.stderr)
+        return None
+    data = resp.json()
+    if isinstance(data, dict) and "user" in data:
+        return data["user"]
+    if isinstance(data, dict):
+        return data
+    return None
+
+
 def parse_ts(ts: Optional[str]) -> Optional[dt.datetime]:
     if not ts:
         return None
@@ -152,7 +183,11 @@ def parse_ts(ts: Optional[str]) -> Optional[dt.datetime]:
         return None
 
 
-def select_last_login(user: Dict[str, Any], org_id: Optional[str]) -> Optional[dt.datetime]:
+def select_last_login(
+    user: Dict[str, Any],
+    org_id: Optional[str],
+    log_missing: bool = False,
+) -> Optional[dt.datetime]:
     entries = user.get("orgMembers") or []
     candidates: List[dt.datetime] = []
     for entry in entries:
@@ -167,13 +202,24 @@ def select_last_login(user: Dict[str, Any], org_id: Optional[str]) -> Optional[d
             parsed = parse_ts(entry.get("lastLoginAt"))
             if parsed:
                 candidates.append(parsed)
-    return max(candidates) if candidates else None
+    root_ts = parse_ts(user.get("lastLoginAt"))
+    if root_ts:
+        candidates.append(root_ts)
+    if candidates:
+        return max(candidates)
+    if log_missing:
+        identifier = user.get("email")
+        print(f"[lastLoginAt missing] user={identifier} orgMembers_count={len(entries)}", file=sys.stderr)
+    return None
 
 
 def filter_inactive_users(
     users: Iterable[Dict[str, Any]],
     org_id: Optional[str],
     days_inactive: int,
+    log_missing: bool = False,
+    treat_missing_as_inactive: bool = False,
+    detail_lookup=None,
 ) -> List[Dict[str, Any]]:
     now = dt.datetime.now(dt.timezone.utc)
     threshold = now - dt.timedelta(days=days_inactive)
@@ -181,12 +227,15 @@ def filter_inactive_users(
     for user in users:
         if (user.get("status") or "").lower() == "disabled":
             continue
-        last_login = select_last_login(user, org_id)
+        detail_user = detail_lookup(user) if detail_lookup else user
+        last_login = select_last_login(detail_user or user, org_id, log_missing)
+        if last_login is None and not treat_missing_as_inactive:
+            continue
         if last_login is None or last_login <= threshold:
             inactive.append(
                 {
-                    "id": user.get("id") or user.get("email"),
-                    "email": user.get("email"),
+                    "id": (detail_user or user).get("id") or user.get("email"),
+                    "email": (detail_user or user).get("email") or user.get("email"),
                     "last_login": last_login,
                 }
             )
@@ -208,7 +257,7 @@ def disable_batch(
     payload = {
         "entities": [
             {
-                "identifier": user["id"],
+                "identifier": user["email"],
                 "properties": {"status": "Disabled"},
             }
             for user in batch
@@ -232,7 +281,21 @@ def main() -> None:
     headers = {"Authorization": f"Bearer {token}"}
 
     users = fetch_users(session, args.base_url, headers)
-    inactive_users = filter_inactive_users(users, args.org_id, args.days_inactive)
+
+    def detail_lookup(user: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        email = user.get("email")
+        if not email:
+            return None
+        return fetch_user_detail(session, args.base_url, headers, email)
+
+    inactive_users = filter_inactive_users(
+        users,
+        args.org_id,
+        args.days_inactive,
+        log_missing=args.log_missing_last_login,
+        treat_missing_as_inactive=args.treat_missing_as_inactive,
+        detail_lookup=detail_lookup,
+    )
 
     print(f"Found {len(users)} users; {len(inactive_users)} inactive (>{args.days_inactive} days).")
     if not inactive_users:
